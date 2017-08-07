@@ -2,6 +2,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="theme-color" content="#2e2e2e"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="google-site-verification" content="6W--ve65HbCJhCzMr9T0GWQFxmoIt6TAvxAOK7mbmdw" />
+<meta name="baidu-site-verification" content="gOo33cChxc" />
+
 {% if theme.han %}
   {% set Han_uri = url_for(theme.vendors._internal + '/Han/dist/han.min.css?v=3.3') %}
   {% if theme.vendors.Han %}
@@ -90,6 +94,9 @@
     }
   };
 </script>
+
+<script id="dsq-count-scr" src="//cgspace0827.disqus.com/count.js" async></script>
+
 
 {# Canonical, good for google search engine (SEO) : https://support.google.com/webmasters/answer/139066 #}
 {% if theme.canonical %}

@@ -95,7 +95,9 @@
   };
 </script>
 
+<!--
 <script id="dsq-count-scr" src="//cgspace0827.disqus.com/count.js" async></script>
+-->
 
 
 {# Canonical, good for google search engine (SEO) : https://support.google.com/webmasters/answer/139066 #}

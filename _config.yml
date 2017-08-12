@@ -211,11 +211,12 @@ sidebar:
 
 
 # Blog rolls
-#links_title: Links
-#links_layout: block
+links_title: Links
+links_layout: block
 #links_layout: inline
-#links:
-  #Title: http://example.com/
+links:
+  LWL的自由天空: https://blog.lwl12.com/
+  QQ 爹博客: https://qqdie.com
 
 
 # ---------------------------------------------------------------

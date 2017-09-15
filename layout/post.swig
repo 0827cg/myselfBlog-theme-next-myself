@@ -30,6 +30,7 @@ var gitalk = new Gitalk({
   repo: 'cgstudios.github.io',
   owner: 'cgstudios',
   admin: ['cgstudios'],
+  distractionFreeMode: true
 })
 gitalk.render('gitalk-container')
 </script>

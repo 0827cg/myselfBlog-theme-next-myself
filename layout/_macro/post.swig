@@ -57,9 +57,15 @@
               {% if theme.post_meta.item_text %}
                 <span class="post-meta-item-text">{{ __('post.posted') }}</span>
               {% endif %}
+			  {% if not is_index %}
               <time title="{{ __('post.created') }}" itemprop="dateCreated datePublished" datetime="{{ moment(post.date).format() }}">
+                {{ date(post.date, config.all_date_format) }}
+              </time>
+			  {% else %}
+			  <time title="{{ __('post.created') }}" itemprop="dateCreated datePublished" datetime="{{ moment(post.date).format() }}">
                 {{ date(post.date, config.date_format) }}
               </time>
+			  {% endif %}
             {% endif %}
             {% if theme.post_meta.created_at and theme.post_meta.updated_at %}
               <span class="post-meta-divider">|</span>
@@ -71,9 +77,15 @@
               {% if theme.post_meta.item_text %}
                 <span class="post-meta-item-text">{{ __('post.modified') }}</span>
               {% endif %}
+			  {% if not is_index %}
               <time title="{{ __('post.modified') }}" itemprop="dateModified" datetime="{{ moment(post.updated).format() }}">
+                {{ date(post.updated, config.all_date_format) }}
+              </time>
+			  {% else %}
+			  <time title="{{ __('post.modified') }}" itemprop="dateModified" datetime="{{ moment(post.updated).format() }}">
                 {{ date(post.updated, config.date_format) }}
               </time>
+			  {% endif %}
             {% endif %}
           </span>
           {% if post.categories and post.categories.length and theme.post_meta.categories %}
@@ -102,6 +114,7 @@
           {% endif %}
           {% if post.comments %}
             {% if (theme.duoshuo and theme.duoshuo.shortname) or theme.duoshuo_shortname %}
+            <!--
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
                 <span class="post-meta-item-icon">
@@ -111,7 +124,9 @@
                   <span class="post-comments-count ds-thread-count" data-thread-key="{{ post.path }}" itemprop="commentCount"></span>
                 </a>
               </span>
+              -->
             {% elseif theme.facebook_comments_plugin.enable %}
+            <!--
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
                 <span class="post-meta-item-icon">
@@ -121,7 +136,9 @@
                   <span class="post-comments-count fb-comments-count" data-href="{{ post.permalink }}" itemprop="commentCount">0</span> comments
                 </a>
               </span>
+              -->
             {% elseif theme.disqus.enable and theme.disqus.count %}
+            <!--
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
                 <span class="post-meta-item-icon">
@@ -132,8 +149,10 @@
                         data-disqus-identifier="{{ post.path }}" itemprop="commentCount"></span>
                 </a>
               </span>
+              -->
             {% elseif theme.hypercomments_id %}
             <!--noindex-->
+            <!--
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
                 <span class="post-meta-item-icon">
@@ -143,8 +162,10 @@
                   <span class="post-comments-count hc-comment-count" data-xid="{{ post.path }}" itemprop="commentsCount"></span>
                 </a>
               </span>
+              -->
               <!--/noindex-->
             {% elseif is_post() and theme.gentie_productKey %}
+            <!--
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
                 <span class="post-meta-item-icon">
@@ -154,7 +175,9 @@
                   <span class="post-comments-count join-count" itemprop="commentCount"></span>
                 </a>
               </span>
-            {% elseif theme.changyan.enable and theme.changyan.appid and theme.changyan.appkey %}
+              -->
+            {% elseif theme.changyan.enable and theme.changyan.appid and 
+            theme.changyan.appkey %}
               <span class="post-comments-count">
               <span class="post-meta-divider">|</span>
               <span class="post-meta-item-icon">
@@ -268,7 +291,7 @@
           {{ post.excerpt }}
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="{{ url_for(post.path) }}{% if theme.scroll_to_more %}#{{ __('post.more') }}{% endif %}" rel="contents">
+            <a class="btn" href="{{ url_for(post.path) }}{% if theme.scroll_to_more %}{% endif %}" rel="contents">
               {{ __('post.read_more') }} &raquo;
             </a>
           </div>
